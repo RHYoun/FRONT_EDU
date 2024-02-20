@@ -1,0 +1,40 @@
+<!--결과를 확인하기 위해선 파일 이름을 index로 바꾸자-->
+<!DOCTYPE html>
+<html lang="ko">
+  <!--lang은 언어의 약어로 기본적으로 어떤언어로 동작하는지 지정-->
+  <head>
+    <meta charset="UTF-8" />
+    <!--charset는 문자 인코딩 방식을 의미 한다.-->
+    <meta name="author" content="happy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--링크 스크립트 제목으로 표시 할 수 없는 모든게 meta로 작성된다
+    meta는 정보를 의미하고 name에 정보의 종류가 명시된다. content는 정보의 값이다.-->
+    <title>html을 배워보자</title>
+    <!--문서의 제목을 정의-->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" href="./favicon.png" />
+    <!--link를 통해서 외부에 있는 css파일과 연결을 해주는 코드이다.
+      rel은 문서와의 관계를 정의한다 + 경로를 명시해 주어야 한다 href이하에 지정
+      ./는 본파일이 저장된 경로의 주변에서 탐색
+      ../는 상위폴더로 한번 나간 후 경로 찾기
+      /만쓴다면 절대경로로 프로젝트 최상위 폴더에서 경로를 찾는다.-->
+    <script src="./js/main.js"></script>
+    <!--script를 통해서 js파일과 연결을 해주는 코드이다. src는 소스의 약어. 개발자모듈에 콘솔에 나옴-->
+    <script>
+      console.log("hello world");
+    </script>
+    <!--script를 통해서 js파일을 직접 문서안에 작성할 수 있다-->
+    <style>
+      div {
+        text-decoration: underline;
+      }
+    </style>
+    <!--css에 넣은 스타일을 따로 지정 가능. -->
+  </head>
+  <body>
+    <div></div>
+    <!--img src="./images/logo.png" alt="HEROPY" /-->
+    <!--src에 경로 표시 필요. alt는 img 사용할 때 필수속성-->
+    <!--img src="https://heropy.blog/css/images/logo.png" alt="HEROPY" /-->
+  </body>
+</html>
