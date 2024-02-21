@@ -1,0 +1,6 @@
+div {
+  width: 200px;
+  height: 100px;
+  background-color: orange;
+  /*해당파일에 div를 찾아서 w h 를 적용하는 방법*/
+}
