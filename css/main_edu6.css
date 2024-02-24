@@ -1,6 +1,16 @@
-span {
+.red {
   color: red;
   background-color: black;
+}
+
+.green {
+  color: green;
+  background-color: blue;
+}
+/* class 지칭은 . id지칭은 # */
+#abc {
+  color: blue;
+  background-color: yellow;
 }
 
 div {
@@ -8,13 +18,7 @@ div {
   background-color: black;
 }
 
-table {
-}
-
 td {
   border: 1px solid red;
   padding: 10px;
-}
-
-tr {
 }
