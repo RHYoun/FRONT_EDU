@@ -1,0 +1,244 @@
+/* 속성 property
+CSS의 경우 꾸미기를 뜻하기 때문에 화면에 어떤식으로 나타날지 상상하는것이 중요하다.
+제어 가능 부분 
+  박스, 글꼴 배경, 배치, 정렬, 전환, 변환, 애니메이션, 그리드, 다단, 필터 등등..
+*/
+/* 속성을 지정 할 때는 이 값들이 기본값을 갖고 있는지 알아야 한다.
+  span같은경우 인라인 요소로 컨텐츠의 크리로 자동으로 줄어든다
+  div같은경우 블럭 요소로 컨텐츠의 가로를 최대로 세로를 최소로 갖게 된다.
+*/
+html {
+  font-size: 20px;
+}
+/* width, height : 기본적인 역할 
+  기본값 : auto // 단위 : px, em, vw */
+div.width-height {
+  /* width: 100px;
+  height: 100px; */
+  background-color: orange;
+}
+span.width-height {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+/* max-width, max-height
+  기본값 : 최대 너비 제한 없음 // 단위 : px, em, vw */
+/* min-width, min-height
+  기본값 : 0 // 단위 : px, em, vw*/
+.width-height-parent {
+  width: 300px;
+  height: 200px;
+  background-color: royalblue;
+}
+.width-height-child {
+  /* max-width: 150px; */
+  min-width: 400px;
+  height: 100px;
+  background-color: darkblue;
+}
+/* CSS 단위
+  px : 픽셀 - 화면하나의 점 
+  % : 상대적 백분율
+  em : 요소의 글꼴 크기 - 글꼴이 10일떄 1em - 10 
+  rem : 루트 요소(최상위=html)의 글꼴 크기 - html 지정된 글꼴 크기 기준 보통은 16px
+  vw : 뷰포트 가로 너비의 백분율 - 브라우저 크기 기준
+  vh : 뷰포트 세로 너비의 백분율 
+*/
+.size-parent {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  font-size: 30px;
+}
+.size-child1 {
+  width: 400px;
+  height: 400px;
+  background-color: rosybrown;
+}
+.size-child2 {
+  width: 80%;
+  height: 90%;
+  background-color: orange;
+}
+
+.size-child3 {
+  width: 10em;
+  height: 200px;
+  background-color: yellow;
+}
+.size-child4 {
+  width: 10rem;
+  height: 150px;
+  background-color: green;
+}
+.size-child5 {
+  width: 50vw;
+  height: 50px;
+  background-color: blue;
+}
+
+/* margin 외부 여백
+  기본값 : 0  // 단위 : auto로 브라우저가 여백을 자동 계산 하나 px, em, vw등으로 지정 가능*/
+.margin-container {
+}
+.margin-item {
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+  margin: -20px 10px;
+  /* margin : 10px 20px ; => top+bottom / left+right */
+  /* margin : 10px 20px 30px; => top / left+right / bottom */
+  /* margin : 10px 20px 30px 40px; => top / right / bottom / left */
+  border: 4px solid red;
+}
+
+/* padding 내부 여백 - 생기는 만큼 크기가 커진다 1~4개 숫자 지정 가능하며 마진과 동일 적용
+  기본값 : 0 // 단위 : 단위지정 가능하며 %시 부모요서 가로너비에 대한 비율*/
+.padding-container {
+}
+.padding-item {
+  width: 100px;
+  height: 100px;
+  background-color: yellowgreen;
+  border: 4px solid red;
+}
+.padding-container .padding-item:first-child {
+  padding: 20px;
+}
+
+/* boarder : 두께 종류 색상; 순서는 바꿔도 상관없긴 한데 보통 이순서를 권장한다.
+  크기가 클수록 요소도 커진다 선 크기는 px, em, %등으로 지정
+  두께의 경우 1~4개 입력 가능으로 마진과 동일하게 적용된다.
+  선의 종류는 none, solid, dashed, dotted, double, groove, ridge, inset, outset 입력도 1~4개
+  색상은 기본 black이며, transparent 투명 적용도 가능 
+  
+  border-radius 모서리를 둥글게 깍음 - 기본값음 0으로 둥글게 없음. 좌측 위부터 시계방향 적용
+  */
+.border-container {
+}
+.border-item {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+.border-container .border-item:first-child {
+  border: 2px dashed rgb(1, 255, 234);
+  border-radius: 5px 10px 15px 20px;
+}
+
+/* box-sizing : 요소의 크기 계산 기준을 지정하여 크기 설정
+  기본값 : content-box로 요소 내용을 기준으로 계산 // 단위 : boader-box 내용 + padding + border 크기까지로 계산*/
+.boxsize-container {
+}
+.boxsize-item {
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+}
+.boxsize-container .boxsize-item:first-child {
+  width: 72px;
+  height: 72px;
+  border: 4px solid red;
+  padding: 10px;
+}
+.boxsize-container .boxsize-item:last-child {
+  border: 4px solid orange;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* overflow : 요소의 크기 이상으로 내용이 넘쳤을 경우 보여짐을 제어하는 속성
+  X, Y 축을 각가 설정  가능함
+  기본값 : visible 보여줌 // 단위 : hidden, scroll, auto*/
+.overflow-container1 {
+  width: 200px;
+  height: 100px;
+  background-color: gray;
+  border: 5px solid;
+}
+.overflow-container1 .overflow-item1 {
+  width: 300px;
+  height: 50px;
+  background-color: red;
+}
+.overflow-container2 {
+  width: 200px;
+  height: 100px;
+  background-color: gray;
+  border: 5px solid;
+  overflow: hidden;
+}
+.overflow-container2 .overflow-item2 {
+  width: 300px;
+  height: 50px;
+  background-color: blue;
+}
+.overflow-container3 {
+  width: 200px;
+  height: 100px;
+  background-color: gray;
+  border: 5px solid;
+  overflow: scroll;
+}
+.overflow-container3 .overflow-item3 {
+  width: 300px;
+  height: 50px;
+  background-color: yellow;
+}
+.overflow-container4 {
+  width: 200px;
+  height: 100px;
+  background-color: gray;
+  border: 5px solid;
+  overflow: auto;
+}
+.overflow-container4 .overflow-item4 {
+  width: 300px;
+  height: 50px;
+  background-color: green;
+}
+
+/* display출력특성 span, div 같은 것들...
+  요소에 지정값 : block(div), inline(span), inline-block,기타
+  추가 지정가능 : flex 1축레이아웃, grid 2축레이아웃, none 값은 있으나 화면에서 안보이게 할 수 있음
+*/
+.displayspan {
+  width: 300px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  display: block;
+}
+.displaynone {
+  width: 300px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  display: none;
+}
+/* opacity 투명도 1불투명 0 투명 0~1 지정가능 */
+.opacity-item1 {
+  width: 50px;
+  height: 50px;
+  background-color: blueviolet;
+  opacity: 0.1;
+}
+.opacity-item2 {
+  width: 50px;
+  height: 50px;
+  background-color: blueviolet;
+  opacity: 0.33;
+}
+.opacity-item3 {
+  width: 50px;
+  height: 50px;
+  background-color: blueviolet;
+  opacity: 0.67;
+}
+.opacity-item4 {
+  width: 50px;
+  height: 50px;
+  background-color: blueviolet;
+  opacity: 1;
+}
