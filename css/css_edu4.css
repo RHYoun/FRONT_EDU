@@ -1,0 +1,442 @@
+/* 글꼴
+  font-style 글꼴 - 기본값 normal
+  font-weight 두께- 기본값 400 (normal 400 bold 700) 100~900 100단위
+  font-size 크기 - 기본값 16px %, em, rem 입력 가능
+  font-family 글꼴 - 글꼴 후보를 여러개 가져올 수 있음 쉼표로 하지만 필수로 글꼴 계열설정 필요.
+                     후보지정이유는 브라우저에서 후보 중 글꼴을 순서대로 사용한다. 이름표에 띄어쓰기가 있다면 ""로 묶어주자
+                     대표 : serif, sans-serif, monospace, cursive, fantasy
+  line-height 행간높이 - 기본 브라우저설정, 글꼴 배수지정, px, em 등으로 설정 가능
+*/
+body {
+  height: 3000px;
+}
+.fonth1 {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: fantasy;
+}
+.fontp1 {
+  font-size: 16px;
+  width: 800px;
+  padding: 10px;
+  border: 1px solid;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+.fontp2 {
+  font-size: 16px;
+  width: 800px;
+  padding: 10px;
+  border: 1px solid;
+  box-sizing: border-box;
+  line-height: 32px;
+}
+.fontp3 {
+  font-size: 16px;
+  width: 800px;
+  padding: 10px;
+  border: 1px solid;
+  box-sizing: border-box;
+  line-height: 200%;
+}
+/* 문자
+  a태그 지정시 파랑색,밑줄 기본 지정이 되어 있다.
+  color 색상 : 검정. 지정 가능 하다.
+  text-align : 기본값 left. // left, right, center, justify 입력 가능
+  text-decoration : 기본값 none // 선을 추가가능 underline, overline, line-through
+  text-indent : 기본 값 0 // +들여쓰기 -내여쓰기, px em rem 등 단위 지정 가능
+  */
+.texta {
+  width: 200px;
+  height: 100px;
+  background-color: yellowgreen;
+  display: block;
+  font-size: 22px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  line-height: 100px;
+}
+.textp {
+  font-size: 24px;
+  text-indent: 50px;
+}
+
+/* 배경삽입
+  background-color: orange; // 기본 투명함
+  background-image: url("/images/favicon.png"); // 기본 이미지없음 + url("경로")를 통해 제어
+  background-size: 60px; // 기본 실제 이미지, 단위지정 가능, cover 비율유지+넓은 너비에 맞춤 contain 비율유지+짧은 너비에 맞춤
+  background-repeat: no-repeat; // 기본 반복출력 //repeat-x, repeat-y 이미지 반복 방향 no-repeat 반복없음
+  background-position: center; // 방향 및 단위 지정가능
+  background-attachment : 기본값 scroll 같이 스크롤, fixed 이미지가 뷰포트에 고정 
+*/
+.bground1 {
+  width: 400px;
+  height: 100px;
+  background-color: orange;
+  background-image: url("/images/logo_edu2.png");
+  background-size: cover;
+  /*배경 삽입시 바둑판식 삽입이 된다  */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+.bground2 {
+  width: 400px;
+  height: 100px;
+  background-color: orange;
+  background-image: url("/images/logo_edu2.png");
+  background-size: cover;
+  /*배경 삽입시 바둑판식 삽입이 된다  */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+}
+/* 배치
+  position 요소의 위치 지정 기준, 기준을 잡고 위치를 설정 하자 : 기본값 없음
+    relative 자신을 기준, absolute 위치상 부모요소 기준, fixed 뷰포트 기준
+  개별속성 top bottom left right : 기본 값 auto로 특정 단위를 입력한다.
+  
+  요소 쌓임 순서 : 사용자와 얼마나 가깝게 있는지 결정 하는 순서
+    1. 요서에 "position="값이 있는경우 상위
+    2. 1번 조건이 같을 경우, z-index 속성의 값이 높을 수록 상위
+    3. 2번 조건이 같을 경우, HTML의 코딩순서가 후속일 수록 상위
+  
+  z-index 요소의 쌓임 정도를 지정, 숫자가 높을 수록 상위 노출
+    */
+.bccontainer1 {
+  width: 300px;
+  background-color: skyblue;
+}
+.bcitem1 {
+  border: 4px dashed red;
+  background-color: orange;
+}
+.bccontainer1 .bcitem1:nth-child(1) {
+  width: 100px;
+  height: 100px;
+}
+.bccontainer1 .bcitem1:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: relative;
+  left: 10px;
+  top: 30px;
+}
+.bccontainer1 .bcitem1:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+
+.bcwrap {
+  width: 700px;
+  height: 350px;
+  background-color: violet;
+  position: relative;
+}
+.bccontainer2 {
+  width: 500px;
+  background-color: blue;
+  position: static;
+  /* 부모의 위치 기준을 relative로 지정해 준다
+  만약 해당 부모를 프리패스 하고 싶다면 static을 입력 */
+}
+.bcitem2 {
+  border: 4px dashed red;
+  background-color: orange;
+}
+.bccontainer2 .bcitem2:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  z-index: 1;
+}
+.bccontainer2 .bcitem2:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: absolute;
+  top: 60px;
+  left: 30px;
+}
+.bccontainer2 .bcitem2:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+.bccontainer2 .bcitem2:nth-child(4) {
+  width: 120px;
+  height: 50px;
+  position: absolute;
+  /* 앱솔루트 선언을 해주면 인라인 요소도 블록의 값을 갖게 된다. */
+}
+
+.bccontainer3 {
+  width: 300px;
+  background-color: green;
+}
+.bcitem3 {
+  border: 4px dashed red;
+  background-color: orange;
+}
+.bccontainer3 .bcitem3:nth-child(1) {
+  width: 100px;
+  height: 100px;
+}
+.bccontainer3 .bcitem3:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+.bccontainer3 .bcitem3:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+
+/* 플랙스 1차원 레이아웃 : 담는 컨테이너에 속성을 부여하여야 한다.
+  컨테이너에 display에 flex를 넣었을떄 flex container와 flex item에 넣을 속성이 구분된다
+  container : display, flex-flow, flex-direction, flex-wrap, justify-content, align-content, align-item
+    display : 화면 출력 특성 // flex를 넣어 블록요소 flex container 설정, inline-flex 인라인요소처럼 동작하게 만듦
+    flex-direction : 주축설정 // 기본 값 row, row-reverse, column, column-reverse
+    flex-wrap : flex-item의 줄바꿈 여부 // 기본 no wrap, wrap설정시 여러줄로 묶음
+    justify-content : 주축 정렬 법 // 기본값 flex-start, flex-end, center, space-between, space-around
+    align-content : 교차축 정렬 법 wrap 및 두줄이상으로 줄바꿈이 되었을 경우 발동// 기본값 stretch 시작점 정렬 = flex-start, flex-end, center
+    align-item : 교차축 정렬 법 한줄일떄 발동 // 뒤와 동일
+*/
+
+.flexcontainer1 {
+  background-color: royalblue;
+  display: flex;
+  flex-direction: row-reverse;
+  color: white;
+  width: 300px;
+}
+.flexcontainer1 .flexitem1 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: orange;
+}
+.flexcontainer2 {
+  background-color: blue;
+  display: inline-flex;
+  color: white;
+}
+.flexcontainer2 .flexitem2 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: yellowgreen;
+}
+.flexcontainer3 {
+  background-color: navy;
+  display: flex;
+  color: white;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  width: 250px;
+  height: 400px;
+}
+.flexcontainer3 .flexitem3 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: green;
+}
+.flexcontainer4 {
+  background-color: black;
+  display: flex;
+  color: white;
+  justify-content: flex-end;
+  height: 200px;
+  align-items: flex-end;
+}
+.flexcontainer4 .flexitem4 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: rgb(0, 78, 0);
+}
+/* item : order, flex, flex-grow, flex-shrink, flex-basis, align-self
+  order : flex item 정렬순서 , 기본값 순서없음 0 , 숫자 입력시 숫자가 작을수록 먼저
+  flex-gow : 너비 증가 비율, 기본값 0 증가비 없음, 숫자 적용시 증가비율 적용
+  flex-shrink : 너비 감소 비율, 기본 값 1 container에 따라 비율 적용
+  flex-basis : 공간 배분 전 기본 너비, 기본 값 auto 요소 content너비 , 단위 지정 가능
+  */
+.flexcontainer5 {
+  background-color: gray;
+  display: flex;
+  height: 200px;
+  width: 800px;
+}
+.flexcontainer5 .flexitem5 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: yellowgreen;
+  flex-grow: 0;
+}
+.flexcontainer5 .flexitem5:nth-child(1) {
+  order: 2;
+  flex-grow: 0;
+}
+.flexcontainer5 .flexitem5:nth-child(2) {
+  order: -1;
+  flex-grow: 2;
+}
+.flexcontainer5 .flexitem5:nth-child(3) {
+  flex-grow: 1;
+}
+.flexcontainer6 {
+  background-color: gray;
+  display: flex;
+  height: 200px;
+  width: 800px;
+}
+.flexcontainer6 .flexitem6 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: yellowgreen;
+  flex-grow: 0;
+}
+.flexcontainer6 .flexitem6:nth-child(1) {
+  flex-grow: 1;
+  flex-basis: auto;
+}
+.flexcontainer6 .flexitem6:nth-child(2) {
+  flex-grow: 1;
+  flex-basis: auto;
+}
+.flexcontainer6 .flexitem6:nth-child(3) {
+  flex-grow: 2;
+  flex-basis: auto;
+}
+
+/* 전환 가상 클래스 설정시 start와 end의 연결 효과 지정
+  transition : 속성명 지속시간(필수) 타이밍함수 대기시간; 으로 구성
+  속성명 transition-property : 기본값 all, 속성이름을 명시해서 변경 가능
+  지속시간 transition-duration : 특정 시간 지정
+  타이밍함수 transition-timing-function : easing 함수 지정 기본 ease(느빠느), linear(일정), ease-in(느빠), ease-out(빠느), ease-in-out(느느빠빠느느), cubic-bezier(n,n,n,n) 사용자 지정 가능, step(n) n분할
+    구글 "easing 함수 치트 시트 or easing function mdm or tweenmax easing" 사이트 참고
+  대기시간 transition-delay : 전환 효과 시작까지 대기하는 시간 지정
+  */
+.hover {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transition: width 0.5s, background-color 2s, color 2s;
+}
+.hover:hover {
+  width: 300px;
+  background-color: blue;
+  color: white;
+}
+.active {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  transition: width 1s;
+}
+.active:active {
+  width: 300px;
+  background-color: orange;
+  transition-delay: 1s;
+}
+
+/* 변환 transform
+  변환 함수를 이용해서 변화의 효과를 줄 수 있다.
+  transform: 원근법 이동 크기 회전 기울임; 원근법은 무조건 제일 앞에 작성
+  perspective 차이점을 이해하자
+    속성 perspective : 거리px;   // 관찰대상의 부모에 적용 // 기준점은 perspective-origin
+    함수 transform: perspective : 거리px; // 관찰 대상에 적용 // 기준점은 transform-origin
+  backface-visibility 3d변환으로 회전된 요소 뒷면 숨김 여부
+  2d 변환 
+    translate(x,y) translateX(x) translateY(y) scale(x,y) rotate(deg) skew(x,y)
+  3d 변환
+    translate3d(x,y,z) scale3d(x,y,z) perspective(n) rotateX(x) rotateY(y)
+*/
+.transformwrap {
+  padding: 100px;
+}
+.transformcontainer {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+}
+.transformcontainer .transformitem {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: perspective(150px) rotateX(45deg) scale(0.7) translate(100px, 30px);
+}
+
+.perspectivewrap1 {
+  padding: 20px;
+}
+.perspectivecontainer1 {
+  width: 200px;
+  height: 100px;
+  background-color: royalblue;
+}
+.perspectivecontainer1 .perspectiveitem1 {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: perspective(500px) rotateY(45deg);
+}
+
+.perspectivewrap2 {
+  padding: 20px;
+}
+.perspectivecontainer2 {
+  width: 200px;
+  height: 100px;
+  background-color: royalblue;
+  perspective: 100px;
+}
+.perspectivecontainer2 .perspectiveitem2 {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: rotateY(45deg);
+}
+
+.bfwrap1 {
+  padding: 20px;
+}
+.bfcontainer1 {
+  width: 200px;
+  height: 100px;
+  background-color: royalblue;
+  perspective: 500px;
+}
+.bfcontainer1 .bfitem1 {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: rotateY(135deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bfwrap2 {
+  padding: 20px;
+}
+.bfcontainer2 {
+  width: 200px;
+  height: 100px;
+  background-color: royalblue;
+  perspective: 500px;
+}
+.bfcontainer2 .bfitem2 {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: rotateY(135deg);
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
